@@ -44,6 +44,9 @@ P['sle'] = {
 			['pethide'] = true,
 		},
 	},
+
+	--Caster Name
+	['castername'] = false,
 	
 	--Raid marks
 	['marks'] = {
@@ -113,12 +116,6 @@ P['sle'] = {
 		},
 	},
 	
-	--Raid Utility
-	['raidutil'] = {
-		['xpos'] = E.screenwidth/3,
-		['ypos'] = E.screenheight - 16,
-	},
-	
 	--Combat Icon
 	['combatico'] = {
 		['pos'] = 'TOP',
@@ -131,16 +128,13 @@ P['sle'] = {
 		['mouse'] = false,
 		['position'] = "uib_vert",
 	},
-	
-	['vengeance'] = {
-		['enable'] = true,
-		['width'] = 408,
-		['height'] = 18,
-	},
 
 	--Autoloot
 	['lootwin'] = false,
 	['lootalpha'] = 1,
+	
+	--Error messages
+	['errors'] = false,
 }
 
 --For some reason datatext settings refuses to work if there is no general setting block here O_o
@@ -266,3 +260,9 @@ P['datatexts'] = {
 P.unitframe.units.player.classbar.xOffset = 0
 P.unitframe.units.player.classbar.yOffset = 0
 P.unitframe.units.player.classbar.offset = false
+P.unitframe.units.player.fixTo = "health"
+P.unitframe.units.target.fixTo = "health"
+P.unitframe.units.targettarget.fixTo = "health"
+P.unitframe.units.focus.fixTo = "health"
+P.unitframe.units.arena.fixTo = "health"
+P.unitframe.units.boss.fixTo = "health"

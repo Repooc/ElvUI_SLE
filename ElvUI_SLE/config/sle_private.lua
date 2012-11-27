@@ -1,11 +1,6 @@
 ﻿local E, L, V, P, G, _ =  unpack(ElvUI); --Inport: Engine, Locales, ProfileDB, GlobalDB
 
 V['sle'] = {
-	--Auras Frame
-	['auras'] = {
-		['castername'] = false,
-	},
-	
 	['dbm'] = {
 		['size'] = 10,
 	},
@@ -26,6 +21,14 @@ V['sle'] = {
 		},
 	},
 	
-	--Error messages
-	['errors'] = false
+	["datatext"] = {
+		["dp1hide"] = false,
+		["dp2hide"] = false,
+		["tophide"] = false,
+		["dp3hide"] = false,
+		["dp4hide"] = false,
+		["dp5hide"] = false,
+		["bottomhide"] = false,
+		["dp6hide"] = false,
+	},
 }

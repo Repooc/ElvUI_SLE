@@ -3,6 +3,8 @@ local SLE = E:NewModule('SLE', 'AceHook-3.0', 'AceEvent-3.0');
 local UF = E:GetModule('UnitFrames');
 local DTP
 
+SLE.version = GetAddOnMetadata("ElvUI_SLE", "Version")
+
 function SLE:Tutorials() --Additional tutorials
 	table.insert(E.TutorialList, #(E.TutorialList)+1, L["To enable full values of health/power on unitframes in Shadow & Light add \":sl\" to the end of the health/power tag.\nExample: [health:current:sl]."]);
 end
@@ -69,11 +71,58 @@ function E:UpdateAll()
 	end
 	E:GetModule('UIButtons'):UpdateAll()
 	E.db.datatexts.panels.Top_Center = 'Version'
-	E:GetModule('DataTexts'):LoadDataTexts() --Prevents datatexts from not changing on profile switch (Elv's issue)
-	E:GetModule('RaidUtility'):MoveButton()
 	SLE:ChatPos()
 end
 
+function SLE:Reset(all, uf, dt, bg, mark)
+	if all then --Reset All button
+		E:CopyTable(E.db.sle, P.sle)
+		E:ResetMovers(L["DP_1"])
+		E:ResetMovers(L["DP_2"])
+		E:ResetMovers(L["DP_3"])
+		E:ResetMovers(L["DP_4"])
+		E:ResetMovers(L["DP_5"])
+		E:ResetMovers(L["DP_6"])
+		E:ResetMovers(L["Top_Center"])
+		E:ResetMovers(L["Bottom_Panel"])
+		E:ResetMovers(L["Dashboard"])
+		E:ResetMovers(L["Pet Battle AB"])
+		E:ResetMovers("PvP")
+		E:ResetMovers('RM')
+		E:ResetMovers(L["UI Buttons"])
+	end
+	if uf then
+		E.db.sle.combatico.pos = 'TOP'
+		E:CopyTable(E.db.unitframe.units.player.classbar, P.unitframe.units.player.classbar)
+		E.db.unitframe.units.player.fixTo = "health"
+		E.db.unitframe.units.target.fixTo = "health"
+		E.db.unitframe.units.targettarget.fixTo = "health"
+		E.db.unitframe.units.focus.fixTo = "health"
+		E.db.unitframe.units.arena.fixTo = "health"
+		E.db.unitframe.units.boss.fixTo = "health"
+		E.db.sle.powtext = false
+	end
+	if dt then
+		E:CopyTable(E.db.sle.datatext, P.sle.datatext)
+		E:ResetMovers(L["DP_1"])
+		E:ResetMovers(L["DP_2"])
+		E:ResetMovers(L["DP_3"])
+		E:ResetMovers(L["DP_4"])
+		E:ResetMovers(L["DP_5"])
+		E:ResetMovers(L["DP_6"])
+		E:ResetMovers(L["Top_Center"])
+		E:ResetMovers(L["Bottom_Panel"])
+		E:ResetMovers(L["Dashboard"])
+	end
+	if bg then
+		E:CopyTable(E.db.sle.backgrounds, P.sle.backgrounds)
+	end
+	if mark then
+		E:CopyTable(E.db.sle.marks, P.sle.marks)
+		E:ResetMovers('RM')
+	end
+	E:UpdateAll()
+end
 
 function SLE:Initialize()
 	DTP = E:GetModule('DTPanels')
@@ -82,7 +131,7 @@ function SLE:Initialize()
 	end
 	self:RegisterEvent('PLAYER_ENTERING_WORLD', 'LootShow');
 	if E.db.general.loginmessage then
-		print(L['SLE_LOGIN_MSG'])
+		print(format(L['SLE_LOGIN_MSG'], E["media"].hexvaluecolor, SLE.version))
 	end
 	E.db.datatexts.panels.Top_Center = 'Version'
 	DTP:DashboardShow()

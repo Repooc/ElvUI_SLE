@@ -6,16 +6,16 @@ function CH:ChatEdit_AddHistory(editBox, line)
 	if line:find("/rl") then return; end
 
 	if ( strlen(line) > 0 ) then
-		for i, text in pairs(ElvCharacterData.ChatEditHistory) do
+		for i, text in pairs(ElvCharacterDB.ChatEditHistory) do
 			if text == line then
 				return
 			end
 		end
 
-		table.insert(ElvCharacterData.ChatEditHistory, #ElvCharacterData.ChatEditHistory + 1, line)
-		if #ElvCharacterData.ChatEditHistory > E.db.chat.editboxhistory then
-			for i=1,(#ElvCharacterData.ChatEditHistory - E.db.chat.editboxhistory) do
-				table.remove(ElvCharacterData.ChatEditHistory, 1)
+		table.insert(ElvCharacterDB.ChatEditHistory, #ElvCharacterDB.ChatEditHistory + 1, line)
+		if #ElvCharacterDB.ChatEditHistory > E.db.chat.editboxhistory then
+			for i=1,(#ElvCharacterDB.ChatEditHistory - E.db.chat.editboxhistory) do
+				table.remove(ElvCharacterDB.ChatEditHistory, 1)
 			end
 		end
 	end
@@ -93,7 +93,7 @@ function CH:PositionChat(override)
 			FCF_SavePositionAndDimensions(chat)			
 			
 			tab:SetParent(RightChatPanel)
-			chat:SetParent(tab)
+			chat:SetParent(RightChatPanel)
 			
 			if chat:IsMovable() then
 				chat:SetUserPlaced(true)
@@ -104,8 +104,8 @@ function CH:PositionChat(override)
 				CH:SetupChatTabs(tab, false)
 			end
 		elseif not isDocked and chat:IsShown() then
-			tab:SetParent(E.UIParent)
-			chat:SetParent(E.UIParent)
+			tab:SetParent(UIParent)
+			chat:SetParent(UIParent)
 			
 			CH:SetupChatTabs(tab, true)
 		else
@@ -121,7 +121,11 @@ function CH:PositionChat(override)
 				FCF_SavePositionAndDimensions(chat)		
 			end
 			chat:SetParent(LeftChatPanel)
-			tab:SetParent(GeneralDockManager)
+			if i > 2 then
+				tab:SetParent(GeneralDockManagerScrollFrameChild)
+			else
+				tab:SetParent(GeneralDockManager)
+			end
 			if chat:IsMovable() then
 				chat:SetUserPlaced(true)
 			end

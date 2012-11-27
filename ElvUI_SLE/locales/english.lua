@@ -21,10 +21,13 @@ L["Loot History"] = true
 L["Auto hide"] = true
 L["Automaticaly hide Blizzard loot histroy frame when leaving the instance."] = true
 L["Sets alpha of loot histroy frame."] = true
-L["SLE_LOGIN_MSG"] = [=[You are using |cff1784d1Shadow & Light Edit|r for ElvUI.
+L["SLE_LOGIN_MSG"] = [=[You are using |cff1784d1Shadow & Light Edit|r version |cff1784d1%s%s|r for ElvUI.
 If you wish to use the original ElvUI addon, disable this edit's plugin in your Addons manager.
 Have a nice day.]=]
 L["Your version of ElvUI is older than recommended to use with Shadow & Light Edit. Please, download the latest version from tukui.org."] = true
+L["Reset All"] = true
+L["Reset all Shadow & Light options and movers to their defaults"] = true
+L["Reset these options to defaults"] = true
 
 --Install--
 L["Shadow & Light Settings"] = true
@@ -78,7 +81,7 @@ L["SLE_AUTHOR_INFO"] = "Shadow & Light Edit by Darth Predator & Repooc"
 L["SLE_CONTACTS"] = [=[Bug reports, suggestions and other stuff accepted via:
 - Private Massage on TukUI.org to Darth Predator or Repooc
 - AddOn's page/ticket system on curse.com
-- AddOn's thread on tukui.org
+- Forums on tukui.org, Addons/Help section
 - AddOn's repo github.com]=]
 L["DP_1"] = "DT Panel 1"
 L["DP_2"] = "DT Panel 2"
@@ -101,6 +104,8 @@ L["Dashboard Panels Width"] = true
 L["Sets size of dashboard panels."] = true
 L["Show/Hide this panel."] = true
 L["Sets size of this panel"] = true
+L['Hide panel background'] = true
+L["Don't show this panel, only datatexts assinged to it"] = true
 
 --Exp/Rep Bar--
 L["Xp-Rep Text"] = true
@@ -118,20 +123,8 @@ L["Sets size of buttons"] = true --Also used in UI buttons
 L["Direction"] = true
 L["Change the direction of buttons growth from the skull marker"] = true
 
---Raid Utility--
-L["Raid Utility"] = true
-L["Raid Utility Coordinates"] = true
-L["RU_DESC"] = [=[This config group allows you to freely move your Raid Utility button starting position.
-Moving Raid Utility with mouse is disabled.  Use the sliders to move the button around.]=]
-L["X Position"] = true
-L["Y Position"] = true
-L["Sets X position of Raid Utility button."] = true
-L["Sets Y position of Raid Utility button."] = true
-L["Show Button"] = true
-L["Show/hide Raid Utility button.\nThis option is not permanent. The button will act as normal when joining/leaving groups."] = true
-
 --Skins--
-L["This options require Azilroka's skin pack to work."] = true
+L["This options require ElvUI AddOnSkins pack to work."] = true
 L["Sets font size on DBM bars"] = true
 L["Ground"] = true
 L["Flying"] = true
@@ -170,6 +163,8 @@ L["Classbar Energy"] = true
 L["Show/hide the text with exact number of energy (Solar/Lunar or Demonic Fury) on your Classbar."] = true
 L["Classbar Offset"] = true
 L["This options will allow you to detach your classbar from player's frame and move it in other location."] = true
+L["Power Text Position"] = true
+L["Position power text on this bar of chosen frame"] = true
 
 --Credits--
 L["ELVUI_SLE_CREDITS"] = "We would like to point out the following people for helping us create this addon with testing, coding, and other stuff."
@@ -182,6 +177,7 @@ Boradan
 Camealion
 Pvtschlag
 Sinaris
+Sortokk
 Swordyy
 ]=]
 L["Other Support:"] = true
@@ -195,3 +191,31 @@ L["To enable full values of health/power on unitframes in Shadow & Light add \":
 
 --Movers--
 L["Pet Battle AB"] = true
+
+
+--Changelog--
+L["Changelog"] = true
+L["CHANGE_LOG"] = [=[|cff1784d1v1.3|r (Not released, patch 5.1 stuff)
+- Authors' layouts have been changed
+- Mount serach was deleted, Blizzard added that themselves
+- Some adjustions for pixel perfect mode to make things look good
+- Caster name in auras' tooltips is now profile based option
+- An option added to chosee if you want your power text to be on power bar or health bar (health by default as in normal ElvUI)
+- Raid Utility options removed. Now it's fully movable with it's own mover
+- Added a mover for world/BG pvp score - Hellfire towers, AV reinforcements, AB resources, etc. (Darth grow tired of using MoveAnything)
+- Capture bar is now docked to the bottom of a new mover
+- Show errors in combat is now profile based option
+- Added S&L version number to version datatext, login message and config
+- Buttons for resetting all S&L options or just desired group's options have been added
+- You can now see changelog in game
+- Added alternative mene regen datatext called "MP5". It shows an "mp5" title instead of "mana regen"
+
+|cff1784d1v1.22|r (November 8, 2012)
+- Fixed our settings packs in installation
+- You will be able to see your castbar and other stuff while in vehicle again (apparently it was there for ages and no one reported that o_O)
+- The option to hide combat indicator was removed. You can choose to hide it in it's positioning dropdown list now.
+- Fixed some issues with loading that resulted in disappearing of S&L mover group in config mode.
+
+|cff1784d1v1.21|r (November 1, 2012)
+- Fixed small error
+]=]

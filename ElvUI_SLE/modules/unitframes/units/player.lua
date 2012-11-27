@@ -53,10 +53,12 @@ function UF:Update_PlayerFrame(frame, db)
 	local unit = self.unit
 	
 	--Power Text
+	if E.db.unitframe.units.player.fixTo == "power" then
 		local x, y = self:GetPositionOffset(db.power.position)
 		power.value:ClearAllPoints()
 		power.value:Point(db.power.position, frame.Power, db.power.position, x, y)		
 		frame:Tag(power.value, db.power.text_format)
+	end
 	
 	if not E.db.unitframe.units.player.classbar.offset then return end --Checking for offset option enabled
 	--All this crap is needed to be copied from Elv's player.lua to avoid graphical bugs
@@ -85,14 +87,14 @@ function UF:Update_PlayerFrame(frame, db)
 	
 	health:ClearAllPoints()
 	health:Point("TOPRIGHT", frame, "TOPRIGHT", -BORDER, -BORDER)
-		if USE_POWERBAR_OFFSET then
-			health:Point("TOPRIGHT", frame, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER+POWERBAR_OFFSET)
-		elseif USE_MINI_POWERBAR then
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER + (POWERBAR_HEIGHT/2))
-		else
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER + POWERBAR_HEIGHT)
-		end
+	if USE_POWERBAR_OFFSET then
+		health:Point("TOPRIGHT", frame, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
+		health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER+POWERBAR_OFFSET)
+	elseif USE_MINI_POWERBAR then
+		health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER + (POWERBAR_HEIGHT/2))
+	else
+		health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", BORDER, BORDER + POWERBAR_HEIGHT)
+	end
 	
 	health.bg:ClearAllPoints()
 		if not USE_PORTRAIT_OVERLAY then
@@ -112,7 +114,7 @@ function UF:Update_PlayerFrame(frame, db)
 		if USE_MINI_CLASSBAR then
 			DEPTH = -(BORDER+(CLASSBAR_HEIGHT/2))
 		else
-			DEPTH = -(BORDER)
+			DEPTH = -(BORDER+CLASSBAR_HEIGHT+SPACING)
 		end
 		
 		if USE_POWERBAR_OFFSET then
@@ -122,10 +124,6 @@ function UF:Update_PlayerFrame(frame, db)
 		end
 		
 		health:Point("TOPLEFT", frame, "TOPLEFT", PORTRAIT_WIDTH+BORDER, DEPTH)
-	end
-	
-	if USE_POWERBAR_OFFSET then
-		CLASSBAR_WIDTH = CLASSBAR_WIDTH - POWERBAR_OFFSET
 	end
 	
 	--Classbars	
@@ -291,7 +289,7 @@ function UF:Update_PlayerFrame(frame, db)
 			bars:Point("CENTER", frame.Health.backdrop, "TOP", (db.classbar.xOffset or 0) -(BORDER*3 + 6), (db.classbar.yOffset or 0))
 			bars:SetFrameStrata("MEDIUM")
 		else
-			bars:Point("BOTTOMLEFT", frame.Health.backdrop, "TOPLEFT", (db.classbar.xOffset or 0) +BORDER, (E.PixelMode and 0 or (BORDER + SPACING)))
+			bars:Point("BOTTOMLEFT", frame.Health.backdrop, "TOPLEFT", (db.classbar.xOffset or 0) +BORDER, (db.classbar.yOffset or 0) + (E.PixelMode and 0 or (BORDER + SPACING)))
 			bars:SetFrameStrata("LOW")
 		end
 		bars:Width(CLASSBAR_WIDTH)

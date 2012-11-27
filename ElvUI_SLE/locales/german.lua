@@ -14,10 +14,13 @@ L["PvP Auto Release"] = "PvP Auto Freilassen"
 L["Automatically release body when killed inside a battleground."] = "Geist automatisch freilassen wenn man innerhalb eines Schlachtfeldes stirbt."
 L["Pet autocast corners"] = "Begleiter autozauber Ecken"
 L["Show/hide triangles in corners of autocastable buttons."] = "Zeige/Verstecke dreiecke in den Ecken der automatisch zaubernden Tasten."
-L["SLE_LOGIN_MSG"] = [=[Du benutzt |cff1784d1Schatten & Licht Edit|r für ElvUI.
+L["SLE_LOGIN_MSG"] = [=[Du benutzt |cff1784d1Schatten & Licht Edit|r v|cff1784d1%s%s|r für ElvUI.
 Möchtest du das Original ElvUI Addon benutzen, deaktiviere das Edit Plugin aus deinem Addon Manager.
 Habt einen schönen Tag.]=]
 L["Your version of ElvUI is older than recommended to use with Shadow & Light Edit. Please, download the latest version from tukui.org."] = "Deine Version von Elvui ist älter als die empfohlene zum benutzen mit Schatten & Licht Edit. Bitte, downloade die letzte Version von tukui.org."
+L["Reset All"] = true
+L["Reset all Shadow & Light options and movers to their defaults"] = true
+L["Reset these options to defaults"] = true
 
 --Install--
 L["Shadow & Light Settings"] = "Schatten & Licht Einstellungen"
@@ -73,7 +76,6 @@ L["SLE_AUTHOR_INFO"] = "Schatten & Licht Edit von Darth Predator & Repooc"
 L["SLE_CONTACTS"] = [=[Bug berichte, Vorschläge und andere Sachen akzeptiert via:
 - Privat Nachricht auf TukUI.org zu Darth Predator oder Repooc
 - AddOn's Seite/ticket system auf curse.com
-- AddOn's Beitrag auf tukui.org
 - AddOn's repo github.com]=]
 L["DP_1"] = "Infotext Leiste 1"
 L["DP_2"] = "Infotext Leiste 2"
@@ -96,6 +98,8 @@ L["Dashboard Panels Width"] = "Dashboard Leisten Breite"
 L["Sets size of dashboard panels."] = "Wähle die Größe der dashboard Leisten."
 L["Show/Hide this panel."] = "Zeige/Verstecke diese Leiste."
 L["Sets size of this panel"] = "Wähle die Größe dieser Leiste"
+L['Hide panel background'] = true
+L["Don't show this panel, only datatexts assinged to it"] = true
 
 --Exp/Rep Bar--
 L["Xp-Rep Text"] = "Xp-Rruf Text"
@@ -112,20 +116,8 @@ L["Sets size of buttons"] = "Wähle die größe der Tasten" --Also used in UI bu
 L["Direction"] = "Richtung"
 L["Change the direction of buttons growth from the skull marker"] = "Wähle die Richtung des Tasten wachstums von der Totenkopf Markierung"
 
---Raid Utility--
-L["Raid Utility"] = "Raid Utility"
-L["Raid Utility Coordinates"] = "Raid Utility Koordinaten"
-L["RU_DESC"] = [=[Diese Konfigurations Gruppe lässt dich die Raid Utility Taste positionieren.
-Bewege Raid Utility mit Maus ist deaktiviert.  Benutze die Regler um die Taste zum bewegen.]=]
-L["X Position"] = "X Position"
-L["Y Position"] = "Y Position"
-L["Sets X position of Raid Utility button."] = "Wähle die X position der Raid Utility Taste."
-L["Sets Y position of Raid Utility button."] = "Wähle die Y position der Raid Utility Taste."
-L["Show Button"] = "Zeige taste"
-L["Show/hide Raid Utility button.\nThis option is not permanent. The button will act as normal when joining/leaving groups."] = "Zeige/Verstecke die Raid Utility Taste.\nDiese Option ist nicht permanent. Diese Taste wird normal angezeigt wenn man einer Gruppe beitritt oder verlässt."
-
 --Skins--
-L["This options require Azilroka's skin pack to work."] = "Diese Option benötigt Azilroka's Skin Packet zum funktionieren."
+L["This options require ElvUI AddOnSkins pack to work."] = "Diese Option benötigt ElvUI AddOnSkins Packet zum funktionieren."
 L["Sets font size on DBM bars"] = "Wähle die Schriftgröße der DBM Leisten"
 
 --UI buttons--
@@ -171,6 +163,7 @@ Boradan
 Camealion
 Pvtschlag
 Sinaris
+Sortokk
 Swordyy
 ]=]
 L["Other Support:"] = "Anderer Support:"

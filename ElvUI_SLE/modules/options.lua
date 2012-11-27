@@ -14,12 +14,19 @@ E.Options.args.sle = {
 		header = {
 			order = 1,
 			type = "header",
-			name = L["Shadow & Light Edit of ElvUI"],
+			name = L["Shadow & Light Edit of ElvUI"]..format(": |cff99ff33%s|r", SLE.version),
 		},
 		info = {
 			order = 2,
 			type = "description",
 			name = L["SLE_DESC"],
+		},
+		Reset = {
+			order = 3,
+			type = 'execute',
+			name = L["Reset All"],
+			desc = L["Reset all Shadow & Light options and movers to their defaults"],
+			func = function() SLE:Reset(true) end,
 		},
 		general = {
 			order = 3,
@@ -64,16 +71,7 @@ E.Options.args.sle = {
 		},
 	},
 }
---[[
-E.Options.args.sle.args.general.args.autoloot = {
-	order = 2,
-	type = "toggle",
-	name = "Autoloot",
-	desc = "Enable/Disable Autoloot window",
-	get = function(info) return E.db.sle.autoloot end,
-	set = function(info, value) E.db.sle.autoloot = value; end
-}
-]]
+
 --Credits
 E.Options.args.sle.args.credits = {
 	order = 200,
@@ -89,6 +87,24 @@ E.Options.args.sle.args.credits = {
 			order = 2,
 			type = "description",
 			name = L["ELVUI_SLE_CREDITS"]..'\n\n\n'..L["Submodules and Coding:"]..'\n\n'..L["ELVUI_SLE_CODERS"]..'\n\n\n'..L["Other Support:"]..'\n\n'..L["ELVUI_SLE_MISC"],
+		},
+	},
+}
+
+E.Options.args.sle.args.changelog = {
+	order = 500,
+	type = 'group',
+	name = L["Changelog"],
+	args = {
+		logheader = {
+			order = 1,
+			type = "header",
+			name = L["Changelog"],
+		},
+		log = {
+			order = 2,
+			type = "description",
+			name = L["CHANGE_LOG"],
 		},
 	},
 }
